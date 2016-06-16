@@ -12,6 +12,7 @@ This project is built for learning Raspberry Pi purpose.
       4. ..
 
 [Scope]
+
 @phase 1
   1. Remote control direction for the car and WebCam through WIFI
   2. Able to collect environmental data and display to Web Server or upload to the Cloud
