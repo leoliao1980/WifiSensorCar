@@ -2,6 +2,7 @@
 
 This project is built for learning Raspberry Pi purpose.
 
+
 [The outline of this project]
   1. Main control unit: Raspberry Pi 3B+
   2. Sub units: Sensors, Motors, Servo, WebCam, LED .. etc
@@ -10,6 +11,7 @@ This project is built for learning Raspberry Pi purpose.
       2. All in Python language
       3. libries: GPIO, Motion, Flask, MQTT
       4. ..
+
 
 [Scope]
 
