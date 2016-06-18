@@ -1,0 +1,39 @@
+body {
+  padding: 25px;
+  text-align: center;
+  font-size: 25px;
+}
+
+button {
+  margin: 10px;
+  width: 120px;
+  height: 80px;
+  font-size: 20px;
+  border-radius: 25px;
+  background-color: #ccc;
+  border: 5px solid gray;
+}
+
+#status {
+  color: red;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+  border: 5px solid blue;
+  font-size: 30px;
+  font-family: verdana;
+}
+
+.ctrl {
+  display: table;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctrl > div {
+  display: table-cell;
+  vertical-align: middle;
+}
