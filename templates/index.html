@@ -5,29 +5,115 @@
   <meta http-equiv="Con">
   <meta name='apple-mobile-web-app-capable' content='yes'>
   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
-  <link rel="stylesheet" type="text/css" href="static/style.css">
+    <!-- Export CSS  -->
+    <link href="http://jqmdesigner.appspot.com/gk/lib/jquery.mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <style>
+      @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+      html,body,#home,.ui-content {
+        width:1024px;
+        height:auto;
+        padding:0;
+        margin:0;
+        text-shadow:0px 0px 15px #FF37FD;
+        text-align: center;
+        color:white;
+        font-family:Open Sans Condensed;
+      }
+    </style>
+
+    <link href="static/style.css" rel="stylesheet" type="text/css" />
+    <!-- Load Polymer elements  -->
+    <script type="text/javascript" src="static/app.js"></script>
+    <script src="http://jqmdesigner.appspot.com/components/platform/platform.js"></script>
+    <link rel="import" href="http://jqmdesigner.appspot.com/components/core-icons/core-icons.html">
+    <link rel="import" href="http://jqmdesigner.appspot.com/components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="http://jqmdesigner.appspot.com/components/paper-button/paper-button.html">
+    <link rel="import" href="http://jqmdesigner.appspot.com/components/paper-fab/paper-fab.html">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   <!-- <script language="javascript" type="text/javascript">
+
+      function Button_onclick(direction) {
+          $.ajax({ url: '/' + direction });
+      }
+    </script>-->
 </head>
 <body>
-  <div id='status'>Stop</div>
-  <div class='ctrl'>
-    <div>
-      <button onclick="action('left')">Left</button>
-    </div>
-    <div>
-      <div>
-        <button onclick="action('forward')">Forward</button>
-      </div>
-      <div>
-        <button onclick="action('stop')">Stop</button>
-      </div>
-      <div>
-        <button onclick="action('backward')">Backward</button>
-      </div>
-    </div>
-    <div>
-      <button onclick="action('right')">Right</button>
-    </div>
-  </div>
-  <script type="text/javascript" src='static/app.js'></script>
+<div class="ui-table" id="home">
+<div>[DELL Daddy's handmade]</div>
+<div>WIFI Remote Sensor Car - Control UI</div>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="30%">
+
+        <div class="info_area" align="center">
+          <div class="moving_ctrl" align="center">
+            <div>
+                <a onclick="action('left')">
+                  <paper-button label="turn left" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+                </a>
+            </div>
+            <div>
+              <div>
+                <a onclick="action('forward')">
+                  <paper-button label="forward" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+                </a>
+              </div>
+              <div>
+                <a onclick="action('stop')">
+                  <paper-button label="stop" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+                </a>
+              </div>
+              <div>
+                <a onclick="action('backward')">
+                  <paper-button label="backward" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+                </a>
+              </div>
+            </div>
+            <div>
+              <a onclick="action('right')">
+                <paper-button label="turn right" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td width="70%">
+        <div class="cam_stream">
+          <div class="cam_ctrl" align="center">
+            <div>
+                <a onclick="action('cam_left')">
+                  <paper-button class="colored" label="left" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+                </a>
+            </div>
+              <div>
+                <div>
+                  <a onclick="action('cam_up')">
+                    <paper-button label="up" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+                  </a>
+                </div>
+                <div>
+                  <a onclick="action('cam_middle')">
+                    <paper-button label="center" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+                  </a>
+                </div>
+                <div>
+                  <a onclick="action('cam_down')">
+                    <paper-button label="down" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+                  </a>
+                </div>
+              </div>
+            <div>
+              <a onclick="action('cam_right')">
+                <paper-button label="right" role="button" tabindex="0" aria-label="flat button" style="color: white"></paper-button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </body>
 </html>
