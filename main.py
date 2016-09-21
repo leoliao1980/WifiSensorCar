@@ -11,6 +11,7 @@ app = Flask(__name__)
 import RPi.GPIO as gpio
 import time
 import L298NHBridge as HBridge
+import HCSR04 as sonar
 import socket
 
 #speedleft = 1
@@ -30,8 +31,16 @@ def index():
 def ctrl(action):
   print 'api action: ' + action
   if action == 'forward':
-		HBridge.setMotorLeft(1)
-		HBridge.setMotorRight(1)
+        while True:
+            dist = sonar.getDistance()
+            dist = (int(dist * 10)) / 10.0
+	    if dist < 20:
+            HBridge.setMotorLeft(0)
+            HBridge.setMotorRight(0)
+            break
+        else:
+            HBridge.setMotorLeft(1)
+            HBridge.setMotorRight(1)
   elif action == 'backward':
 		HBridge.setMotorLeft(-1)
 		HBridge.setMotorRight(-1)
