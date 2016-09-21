@@ -10,12 +10,23 @@ app = Flask(__name__)
 
 import RPi.GPIO as gpio
 import time
+import socket
 import L298NHBridge as HBridge
 import HCSR04 as sonar
-import socket
+import SG90 as servo
 
-#speedleft = 1
-#speedright = 1
+# global variable
+#speedleft = 0
+#speedright = 0
+tilt_angle = 2.0
+pan_angle = 7.0
+
+# initail the configuration
+servo.setServo(19, 7.0)
+servo.setServo(26, 2.0)
+sonar.setTrigPin(23)
+sonar.setEchoPin(17)
+
 
 s=socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
@@ -50,6 +61,42 @@ def ctrl(action):
   elif action == 'right':
 		HBridge.setMotorLeft(1)
 		HBridge.setMotorRight(0)
+  elif action == 'cam_right':
+        if (tilt_angle > 2.0):
+            #global tilt_angle
+            tilt_angle = tilt_angle - 1.0
+        elif (tilt_angle < 2.0):
+              tilt_angle = 2.0
+        #print (tilt_angle)
+        servo.setServo(26, tilt_angle)
+  elif action == 'cam_left':
+        if (tilt_angle < 8.0):
+            #global tilt_angle
+            tilt_angle = tilt_angle + 1.0
+        elif (tilt_angle < 8.0):
+              tilt_angle = 8.0
+        #print (tilt_angle)
+        servo.setServo(26, tilt_angle)
+  elif action == 'cam_up':
+        if (pan_angle > 2.5):
+            if (pan_angle < 9.0):
+                pan_angle = pan_angle - 1.5
+            else:
+                pan_angle = pan_angle - 2.0
+        elif (pan_angle < 2.5):
+              pan_angle = 2.5
+        #print (pan_angle)
+        servo.setServo(19, pan_angle)
+  elif action == 'cam_down':
+        if (pan_angle < 13.0):
+            if (pan_angle < 7.0):
+                pan_angle = pan_angle + 1.5
+            else:
+                pan_angle = pan_angle + 2.0
+        elif (pan_angle > 13.0):
+              pan_angle = 13.0
+        #print (pan_angle)
+        servo.setServo(19, pan_angle)
   else:
 		HBridge.setMotorLeft(0)
 		HBridge.setMotorRight(0)
