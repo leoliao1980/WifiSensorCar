@@ -11,10 +11,15 @@ app = Flask(__name__)
 import RPi.GPIO as gpio
 import time
 import L298NHBridge as HBridge
+import socket
 
 #speedleft = 1
 #speedright = 1
 
+s=socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+localip=s.getsockname()[0]
+print (localip)
 
 @app.route('/')
 def index():
