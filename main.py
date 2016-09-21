@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# import sys and append modules path
+import sys
+sys.path.append("modules")
+
 from flask import Flask, request, render_template
 app = Flask(__name__)
 
