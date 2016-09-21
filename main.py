@@ -24,7 +24,7 @@ print (localip)
 
 @app.route('/')
 def index():
-  return render_template('index.html')
+  return render_template('index.html', ip=localip)
 
 
 @app.route('/car/<string:action>')

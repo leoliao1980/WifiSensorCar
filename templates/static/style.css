@@ -48,7 +48,7 @@ button {
   height: 480px;
   margin-left: 0px;
   margin-right: 0px;
-  background-image: url(orange.jpg);
+  background-image: url(http://{{ip}}:8081/?action=stream);
   background-position: center center; 
 }
 
