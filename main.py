@@ -61,12 +61,14 @@ def ctrl(action):
         HBridge.setMotorLeft(0)
         HBridge.setMotorRight(1)
         time.sleep(1)
-        break
+        HBridge.setMotorLeft(0)
+        HBridge.setMotorRight(0)
   elif action == 'right':
         HBridge.setMotorLeft(1)
         HBridge.setMotorRight(0)
         time.sleep(1)
-        break
+        HBridge.setMotorLeft(0)
+        HBridge.setMotorRight(0)
   elif action == 'cam_right':
         if (tilt_angle > 2.0):
             tilt_angle = tilt_angle - 1.0
