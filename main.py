@@ -12,7 +12,7 @@ import RPi.GPIO as gpio
 import time
 import socket
 import L298NHBridge as HBridge
-import HCSR04 as sonar
+#import HCSR04 as sonar
 import SG90 as servo
 
 # global variable
@@ -24,8 +24,8 @@ pan_angle = 7.0
 # initail the configuration
 servo.setServo(19, 7.0)
 servo.setServo(26, 2.0)
-sonar.setTrigPin(23)
-sonar.setEchoPin(17)
+#sonar.setTrigPin(23)
+#sonar.setEchoPin(17)
 
 
 s=socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
