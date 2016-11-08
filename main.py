@@ -47,11 +47,11 @@ def ctrl(action):
         while True:
             dist = sonar.getDistance()
             dist = (int(dist * 10)) / 10.0
-        if dist < 20:
-            HBridge.setMotorLeft(0)
-            HBridge.setMotorRight(0)
-            break
-        else:
+            if dist < 20:
+                HBridge.setMotorLeft(0)
+                HBridge.setMotorRight(0)
+                break
+            else:
             HBridge.setMotorLeft(1)
             HBridge.setMotorRight(1)
   elif action == 'backward':
