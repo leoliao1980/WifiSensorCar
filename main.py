@@ -47,7 +47,7 @@ def ctrl(action):
         while True:
             dist = sonar.getDistance()
             dist = (int(dist * 10)) / 10.0
-	    if dist < 20:
+        if dist < 20:
             HBridge.setMotorLeft(0)
             HBridge.setMotorRight(0)
             break
