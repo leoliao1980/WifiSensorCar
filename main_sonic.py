@@ -44,21 +44,29 @@ def ctrl(action):
   global pan_angle
   print 'api action: ' + action
   if action == 'forward':
-        HBridge.setMotorLeft(1)
-        HBridge.setMotorRight(1)
+        while True:
+            dist = sonar.getDistance()
+            dist = (int(dist * 10)) / 10.0
+            if dist < 20:
+                HBridge.setMotorLeft(0)
+                HBridge.setMotorRight(0)
+                break
+            else:
+                HBridge.setMotorLeft(1)
+                HBridge.setMotorRight(1)
   elif action == 'backward':
         HBridge.setMotorLeft(-1)
         HBridge.setMotorRight(-1)
   elif action == 'left':
         HBridge.setMotorLeft(0)
         HBridge.setMotorRight(1)
-        time.sleep(0.5)
+        time.sleep(1)
         HBridge.setMotorLeft(0)
         HBridge.setMotorRight(0)
   elif action == 'right':
         HBridge.setMotorLeft(1)
         HBridge.setMotorRight(0)
-        time.sleep(0.5)
+        time.sleep(1)
         HBridge.setMotorLeft(0)
         HBridge.setMotorRight(0)
   elif action == 'cam_right':
