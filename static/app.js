@@ -10,10 +10,5 @@ function sendAction(type) {
 }
 
 function action(type) {
-  window.carstatus.innerHTML = type;
   sendAction(type);
-}
-
-window.onload = function () {
-  window.carstatus = document.getElementById('status');
 }
