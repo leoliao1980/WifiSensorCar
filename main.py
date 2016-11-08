@@ -14,6 +14,7 @@ import socket
 import L298NHBridge as HBridge
 #import HCSR04 as sonar
 import SG90 as servo
+import httplib, urllib
 
 # global variable
 #speedleft = 0
@@ -33,6 +34,19 @@ s.connect(("8.8.8.8", 80))
 localip=s.getsockname()[0]
 print (localip)
 
+params = urllib.urlencode({'field1': 0, 'key':'N04D7QD8NQFZEQ6D'})     # use your API key generated in the thingspeak channels for the value of 'key'
+headers = {"Content-typZZe": "application/x-www-form-urlencoded","Accept": "text/plain"}
+conn = httplib.HTTPConnection("api.thingspeak.com:80")                
+try:
+        conn.request("POST", "/update", params, headers)
+        response = conn.getresponse()
+        print response.status, response.reason
+        data = response.read()
+        conn.close()
+except:
+        print "connection failed"
+
+
 @app.route('/')
 def index():
   return render_template('index.html', ip=localip)
@@ -46,6 +60,17 @@ def ctrl(action):
   if action == 'forward':
         HBridge.setMotorLeft(1)
         HBridge.setMotorRight(1)
+        params = urllib.urlencode({'field1': 1, 'key':'N04D7QD8NQFZEQ6D'})     # use your API key generated in the thingspeak channels for the value of 'key'
+        headers = {"Content-typZZe": "application/x-www-form-urlencoded","Accept": "text/plain"}
+        conn = httplib.HTTPConnection("api.thingspeak.com:80")                
+        try:
+                conn.request("POST", "/update", params, headers)
+                response = conn.getresponse()
+                print response.status, response.reason
+                data = response.read()
+                conn.close()
+        except:
+                print "connection failed"
   elif action == 'backward':
         HBridge.setMotorLeft(-1)
         HBridge.setMotorRight(-1)
@@ -101,7 +126,18 @@ def ctrl(action):
   else:
         HBridge.setMotorLeft(0)
         HBridge.setMotorRight(0)
-    
+        params = urllib.urlencode({'field1': 0, 'key':'N04D7QD8NQFZEQ6D'})     # use your API key generated in the thingspeak channels for the value of 'key'
+        headers = {"Content-typZZe": "application/x-www-form-urlencoded","Accept": "text/plain"}
+        conn = httplib.HTTPConnection("api.thingspeak.com:80")                
+        try:
+                conn.request("POST", "/update", params, headers)
+                response = conn.getresponse()
+                print response.status, response.reason
+                data = response.read()
+                conn.close()
+        except:
+                print "connection failed"
+
   return ' '
 
 
