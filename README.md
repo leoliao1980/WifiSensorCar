@@ -16,10 +16,10 @@ This project is built for learning Raspberry Pi purpose.
 [Scope]
 
 @phase 1
-  1. Remote control direction for the car and WebCam through WIFI
-  2. Able to collect environmental data and display to Web Server or upload to the Cloud
-  3. Web serve has beautiful UI(html)
-  4. Launch Alarm Mode when detect object moving
+  1. Remote control direction for the car and WebCam through WIFI - [Complete 11-08-2016]
+  2. Able to collect environmental data and display to Web Server or upload to the Cloud - [Incomplete, WIP]
+  3. Web serve has beautiful UI(html) - [Complete 11-08-2016]
+  4. Launch Alarm Mode when detect object moving - [Incomplete, WIP]
   5. 
 
 @phase 2
