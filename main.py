@@ -77,30 +77,30 @@ def ctrl(action):
   elif action == 'left':
         HBridge.setMotorLeft(0)
         HBridge.setMotorRight(1)
-        time.sleep(0.5)
+        time.sleep(0.2)
         HBridge.setMotorLeft(0)
         HBridge.setMotorRight(0)
   elif action == 'right':
         HBridge.setMotorLeft(1)
         HBridge.setMotorRight(0)
-        time.sleep(0.5)
+        time.sleep(0.2)
         HBridge.setMotorLeft(0)
         HBridge.setMotorRight(0)
-  elif action == 'cam_right':
+  elif action == 'cam_down':
         if (tilt_angle > 2.0):
             tilt_angle = tilt_angle - 1.0
         elif (tilt_angle < 2.0):
               tilt_angle = 2.0
         #print (tilt_angle)
         servo.setServo(26, tilt_angle)
-  elif action == 'cam_left':
+  elif action == 'cam_up':
         if (tilt_angle < 8.0):
             tilt_angle = tilt_angle + 1.0
         elif (tilt_angle < 8.0):
               tilt_angle = 8.0
         #print (tilt_angle)
         servo.setServo(26, tilt_angle)
-  elif action == 'cam_up':
+  elif action == 'cam_left':
         if (pan_angle > 2.5):
             if (pan_angle < 9.0):
                 pan_angle = pan_angle - 1.5
@@ -110,7 +110,7 @@ def ctrl(action):
               pan_angle = 2.5
         #print (pan_angle)
         servo.setServo(19, pan_angle)
-  elif action == 'cam_down':
+  elif action == 'cam_right':
         if (pan_angle < 13.0):
             if (pan_angle < 7.0):
                 pan_angle = pan_angle + 1.5
