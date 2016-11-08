@@ -1,0 +1,66 @@
+body {
+  font-size:22px;
+  background:#444;
+}
+
+button {
+  margin: 10px;
+  width: 120px;
+  height: 80px;
+  font-size: 20px;
+  border-radius: 25px;
+  background-color: #ccc;
+  border: 5px solid gray;
+}
+
+#status {
+  color: red;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+  border: 5px solid blue;
+  font-size: 30px;
+  font-family: verdana;
+}
+
+.info_area {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  margin-left: 0px;
+  margin-right: 0px;
+  vertical-align: middle;
+  background-image: url(orange.jpg);
+}
+
+.moving_ctrl {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display: table;
+}
+
+.cam_stream {
+  position: relative;
+  width: 640px;
+  height: 480px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-image: url(http://{{ip}}:8081/?action=stream);
+  background-position: center center; 
+}
+
+.cam_ctrl {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  display: table;
+  vertical-align: middle;
+}
+
+.moving_ctrl > div, .cam_ctrl > div {
+  display: table-cell;
+  vertical-align: middle;
+}
