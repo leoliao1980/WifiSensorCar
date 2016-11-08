@@ -40,6 +40,8 @@ def index():
 
 @app.route('/car/<string:action>')
 def ctrl(action):
+  global tilt_angle
+  global pan_angle
   print 'api action: ' + action
   if action == 'forward':
         while True:
@@ -63,7 +65,6 @@ def ctrl(action):
 		HBridge.setMotorRight(0)
   elif action == 'cam_right':
         if (tilt_angle > 2.0):
-            #global tilt_angle
             tilt_angle = tilt_angle - 1.0
         elif (tilt_angle < 2.0):
               tilt_angle = 2.0
@@ -71,7 +72,6 @@ def ctrl(action):
         servo.setServo(26, tilt_angle)
   elif action == 'cam_left':
         if (tilt_angle < 8.0):
-            #global tilt_angle
             tilt_angle = tilt_angle + 1.0
         elif (tilt_angle < 8.0):
               tilt_angle = 8.0
@@ -97,6 +97,9 @@ def ctrl(action):
               pan_angle = 13.0
         #print (pan_angle)
         servo.setServo(19, pan_angle)
+  elif action == 'cam_middle':
+        servo.setServo(19, 7.0)
+        servo.setServo(26, 2.0)
   else:
 		HBridge.setMotorLeft(0)
 		HBridge.setMotorRight(0)
