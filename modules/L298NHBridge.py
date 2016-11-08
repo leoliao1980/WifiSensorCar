@@ -28,7 +28,7 @@ GPIO.setwarnings(False)
 
 # in3 and in4 for right motor
 leftmotor_in1_pin = 25
-leftmotor_in2_pin = 24
+leftmotor_in2_pin = 14
 GPIO.setup(leftmotor_in1_pin, GPIO.OUT)
 GPIO.setup(leftmotor_in2_pin, GPIO.OUT)
 
